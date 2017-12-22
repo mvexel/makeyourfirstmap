@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First Map</title>
+    <!-- Include Leaflet stylesheet and javascript -->
+    <!-- Make sure to include the CSS before the JS! -->
+    <link rel="stylesheet" href="leaflet.css" />
+    <script src="leaflet.js"></script>
+</head>
+<body>
+    <h1>My First Map</h1>
+    <!-- This is your map container -->
+    <div id="mapid" style="width: 600px; height:400px;"></div>
+    <script type="text/javascript">
+        // Initialize the Leaflet map component
+        var mymap = L.map('mapid');
+        // Set the map's initial view
+        mymap.setView([51.505, -0.09], 13);
+        // Add a tile layer
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?', {
+            // Add OSM attribution and maximum zoom options
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+            maxZoom: 15
+        }).addTo(mymap);
+    </script>
+</body>
+</html>

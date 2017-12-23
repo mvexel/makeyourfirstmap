@@ -1,6 +1,6 @@
 # Make Your First Map
 
-I use this to teach people how to make web maps using simple tools.
+I use this to teach people how to make web maps using simple, free and open tools.
 
 ## Slides
 

@@ -3,14 +3,16 @@
 <head>
     <title>Let's Make A Map!</title>
 </head>
+<!-- Include Leaflet style and JavaScript files -->
 <link rel="stylesheet" href="leaflet.css"></style>
+<script src="leaflet.js"></script>
+<!-- End Leaflet includes -->
+<script src="bus_stops_slc.js"></script>
 <style type="text/css">
     #map_container {
         height: 600px;
     }
 </style>
-<script src="leaflet.js"></script>
-<script src="bus_stops_slc.js"></script>
 <body>
 <h1>Salt Lake City Bus Stops</h1>
 <!-- This is the div that will contain our map -->
@@ -22,7 +24,7 @@
     map.setView([40.7393, -111.8542], 15);
     // Add a tile layer to the map
     L.tileLayer('http://c.sm.mapstack.stamen.com/(terrain,$fff[difference],$000[@10],$fff[hsl-saturation],$550066[hsl-color])[color-burn]/{z}/{x}/{y}.png', {
-            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors. Tiles from Stamen MapStack.',
             maxZoom: 19,
         }).addTo(map);
     // Define a Leaflet Icon for our bus

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Let's Make A Map!</title>
+</head>
+<link rel="stylesheet" href="leaflet.css"></style>
+<style type="text/css">
+    #map_container {
+        height: 600px;
+    }
+</style>
+<script src="leaflet.js"></script>
+<body>
+<h1>Salt Lake City Bus Stops</h1>
+<!-- This is the div that will contain our map -->
+<div id="map_container"></div>
+<script type="text/javascript">
+    // Initialize a new Leaflet Map object
+    var map = new L.map("map_container"); 
+    // Set the map's initial view
+    map.setView([40.7393, -111.8542], 15);
+</script>
+</body>
+</html>

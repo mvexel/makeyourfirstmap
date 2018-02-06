@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Let's Make A Map!</title>
+</head>
+<link rel="stylesheet" href="leaflet.css"></style>
+<style type="text/css">
+    #map_container {
+        height: 600px;
+    }
+</style>
+<script src="leaflet.js"></script>
+<script src="bus_stops_slc.js"></script>
+<body>
+<h1>Salt Lake City Bus Stops</h1>
+<!-- This is the div that will contain our map -->
+<div id="map_container"></div>
+<script type="text/javascript">
+    // Initialize a new Leaflet Map object
+    var map = new L.map("map_container"); 
+    // Set the map's initial view
+    map.setView([40.7393, -111.8542], 15);
+    // Add a tile layer to the map
+    L.tileLayer('http://c.sm.mapstack.stamen.com/(terrain,$fff[difference],$000[@10],$fff[hsl-saturation],$550066[hsl-color])[color-burn]/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+            maxZoom: 19,
+        }).addTo(map);
+    // Define a Leaflet Icon for our bus
+    var busIcon = L.icon({
+        iconUrl: 'images/bus_icon.png',
+    });
+    // Add the GeoJSON layer
+    L.geoJson(bus_stops_geojson, {
+        // pointToLayer defines how a point in our data file
+        // shows up on our map
+        pointToLayer: function(feature, latlng) {
+            // we want it to show up as a marker, using our bus icon
+            var marker = L.marker(latlng, {icon: busIcon});
+            // and when we click on it, it should show the stop name
+            marker.bindPopup(feature.properties.StopName);
+            return marker;
+        }
+    }).addTo(map);
+</script>
+</body>
+</html>
